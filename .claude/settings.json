@@ -1,5 +1,18 @@
 {
   "enabledPlugins": {
     "expo@claude-plugins-official": true
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "tool == \"Write\"",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd {{project_root}} && npx tsc --noEmit 2>&1 | tail -15"
+          }
+        ]
+      }
+    ]
   }
 }
