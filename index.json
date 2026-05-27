@@ -1,0 +1,10 @@
+[
+  {
+    "id": "indian-blouse-front",
+    "category": "Indian Garments",
+    "variant": "Indian Blouse Front",
+    "description": "Front bodice with bust dart and shoulder dart",
+    "url": "indian_blouse_front.json",
+    "measurements": ["neck_round", "shoulder", "bust_round", "bust_width", "bust_height_nbp"]
+  }
+]

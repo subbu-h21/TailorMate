@@ -1,0 +1,202 @@
+{
+  "__patternCAD": true,
+  "version": "1.1",
+  "projectName": "Indian Blouse Front",
+  "measurements": {
+    "neck_round": 39,
+    "shoulder": 11.5,
+    "bust_round": 89,
+    "bust_width": 19,
+    "bust_height_nbp": 24
+  },
+  "points": [
+    {
+      "name": "A",
+      "x": "0",
+      "y": "0"
+    },
+    {
+      "name": "B",
+      "x": "0",
+      "y": "10"
+    },
+    {
+      "name": "G",
+      "x": "0",
+      "y": "B.y + 7.5",
+      "construction": true
+    },
+    {
+      "name": "H",
+      "x": "0",
+      "y": "G.y + 7.5",
+      "construction": true
+    },
+    {
+      "name": "J",
+      "x": "0",
+      "y": "H.y + 15",
+      "construction": true
+    },
+    {
+      "name": "I",
+      "x": "bust_width / 2",
+      "y": "H.y"
+    },
+    {
+      "name": "C0",
+      "x": "neck_round / 6 + 0.5",
+      "y": "B.y",
+      "construction": true
+    },
+    {
+      "name": "D0",
+      "x": "C0.x",
+      "y": "C0.y - (neck_round / 6 + 1)",
+      "construction": true
+    },
+    {
+      "name": "E0",
+      "x": "C0.x",
+      "y": "(C0.y + D0.y) / 2",
+      "construction": true
+    },
+    {
+      "name": "F0",
+      "x": "E0.x + sqrt(shoulder ^ 2 - (D0.y - E0.y) ^ 2)",
+      "y": "E0.y",
+      "construction": true
+    },
+    {
+      "name": "O",
+      "x": "bust_width / 2",
+      "y": "B.y + sqrt(bust_height_nbp ^ 2 - (bust_width / 2) ^ 2)"
+    },
+    {
+      "name": "dp1_0",
+      "x": "F0.x + (D0.x - F0.x) * 2 / dist2(D0.x, D0.y, F0.x, F0.y)",
+      "y": "F0.y + (D0.y - F0.y) * 2 / dist2(D0.x, D0.y, F0.x, F0.y)",
+      "construction": true
+    },
+    {
+      "name": "dp2_0",
+      "x": "F0.x + (D0.x - F0.x) * (2 + bust_round / 20) / dist2(D0.x, D0.y, F0.x, F0.y)",
+      "y": "F0.y + (D0.y - F0.y) * (2 + bust_round / 20) / dist2(D0.x, D0.y, F0.x, F0.y)",
+      "construction": true
+    },
+    {
+      "name": "dp3",
+      "x": "bust_round / 20",
+      "y": "B.y"
+    },
+    {
+      "name": "th1",
+      "x": "dartAngle(dp1_0.x, dp1_0.y, dp2_0.x, dp2_0.y, O.x, O.y)",
+      "y": "0",
+      "construction": true
+    },
+    {
+      "name": "F1",
+      "x": "rotX(F0.x, F0.y, O.x, O.y, th1.x)",
+      "y": "rotY(F0.x, F0.y, O.x, O.y, th1.x)",
+      "construction": true
+    },
+    {
+      "name": "dp1_1",
+      "x": "rotX(dp1_0.x, dp1_0.y, O.x, O.y, th1.x)",
+      "y": "rotY(dp1_0.x, dp1_0.y, O.x, O.y, th1.x)",
+      "construction": true
+    },
+    {
+      "name": "th2",
+      "x": "dartAngle(B.x, B.y, dp3.x, dp3.y, O.x, O.y)",
+      "y": "0",
+      "construction": true
+    },
+    {
+      "name": "C",
+      "x": "rotX(C0.x, C0.y, O.x, O.y, th2.x)",
+      "y": "rotY(C0.x, C0.y, O.x, O.y, th2.x)"
+    },
+    {
+      "name": "D",
+      "x": "rotX(D0.x, D0.y, O.x, O.y, th2.x)",
+      "y": "rotY(D0.x, D0.y, O.x, O.y, th2.x)"
+    },
+    {
+      "name": "E",
+      "x": "rotX(E0.x, E0.y, O.x, O.y, th2.x)",
+      "y": "rotY(E0.x, E0.y, O.x, O.y, th2.x)",
+      "construction": true
+    },
+    {
+      "name": "F",
+      "x": "rotX(F1.x, F1.y, O.x, O.y, th2.x)",
+      "y": "rotY(F1.x, F1.y, O.x, O.y, th2.x)"
+    },
+    {
+      "name": "dp1",
+      "x": "rotX(dp1_1.x, dp1_1.y, O.x, O.y, th2.x)",
+      "y": "rotY(dp1_1.x, dp1_1.y, O.x, O.y, th2.x)"
+    },
+    {
+      "name": "dp2",
+      "x": "18",
+      "y": "4"
+    }
+  ],
+  "lines": [
+    {
+      "from": "B",
+      "to": "C"
+    },
+    {
+      "from": "C",
+      "to": "D"
+    },
+    {
+      "from": "E",
+      "to": "F"
+    },
+    {
+      "from": "dp2",
+      "to": "O"
+    },
+    {
+      "from": "dp1",
+      "to": "O"
+    },
+    {
+      "from": "D0",
+      "to": "F0",
+      "construction": true
+    },
+    {
+      "from": "dp1_0",
+      "to": "O",
+      "construction": true
+    },
+    {
+      "from": "dp2_0",
+      "to": "O",
+      "construction": true
+    },
+    {
+      "from": "H",
+      "to": "I",
+      "construction": true
+    },
+    {
+      "from": "O",
+      "to": "B",
+      "construction": true
+    },
+    {
+      "from": "O",
+      "to": "I",
+      "construction": true
+    }
+  ],
+  "constraints": [],
+  "geoConstraints": []
+}
